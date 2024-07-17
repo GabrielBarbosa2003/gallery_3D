@@ -9,7 +9,11 @@
 html,
 body {
     width: 100%;
-    height: 1000vh;
+    height: 100vh;
     font-family: "Circular Std", sans-serif;
     background: #ffffff;
+}
+
+p,a{
+    color: black;
 }
