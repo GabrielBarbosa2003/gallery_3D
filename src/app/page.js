@@ -3,28 +3,44 @@ import './page.css'
 
 import img1 from '../../public/assets/img1.jpg'
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
+import {React} from 'react'
 
 
 export default function Home() {
+  const [itens, setItems] = useState();
+  const img_item = useRef([])
   useEffect(() => {
-    const gallery = document.querySelector(".gallery");
-    const previewImage = document.querySelector(".center_img img");
+    const generatedItems = [];
+    
+    
     //console.log(previewImage)
 
     for (let i = 0; i < 150; i++) {
-      const item = document.createElement("div");
-      item.className = "item";
-      const img = document.createElement("img");
       const caminho = "./assets/img" + ((i % 15) + 1) + ".jpg";
-      img.src = caminho
-      
-      item.appendChild(img);
-      gallery.appendChild(item);
+      //console.log(caminho)
+     
 
+      generatedItems.push(
+        <div className='item' key={i} ref={img_item}>
+          <img src={caminho} alt='' />
+
+        </div>
+      )
+      
     }
+    setItems(generatedItems);
+
+
+   
+
+  },[])
+
+  useEffect(() => {
+    const previewImage = document.querySelector(".center_img img");
     const items = document.querySelectorAll(".item");
+    console.log(items)
     const numberOfItems = items.length;
     const angleIncrement = 360 / numberOfItems;
 
@@ -60,7 +76,7 @@ export default function Home() {
 
     })
 
-  })
+  },[itens])
   return (
     <>
       <nav className='top'>
@@ -82,6 +98,7 @@ export default function Home() {
         </div>
         <div className='container'>
           <div className='gallery'>
+            {itens}
 
           </div>
         </div>
