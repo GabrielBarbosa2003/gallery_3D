@@ -68,7 +68,7 @@ export default function Home() {
           y: 0,
           z: 0,
           ease: "power2.out",
-          durtion: 0.5,
+          duration: 0.5,
         });
 
       }
