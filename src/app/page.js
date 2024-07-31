@@ -17,11 +17,10 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Home() {
   const [itens, setItems] = useState();
   const img_item = useRef([])
-  const [imageCenter, setImageCenter] = useState(img1)
+  const [imageCenter, setImageCenter] = useState()
 
   useGSAP(() => {
     const generatedItems = [];
-
     for (let i = 0; i < 150; i++) {
       const caminho = "./assets/img" + ((i % 15) + 1) + ".jpg";
 
@@ -34,6 +33,8 @@ export default function Home() {
 
     }
     setItems(generatedItems);
+    setImageCenter(img1);
+
 
 
   }, [])
@@ -45,16 +46,17 @@ export default function Home() {
     img_item.current.forEach((item, index) => {
       gsap.fromTo(item, 
         {
-          rotateY: 0,
+          rotateY: 90,
           rotateZ: 0,
-          delay: 4
+          delay: 2,
+          transformOrigin: "50% 400px",
         },
         {
         rotateY: 90,
         rotateZ: index * angleIncrement - 90,
-        transformOrigin: "50% 400px",
+        transformOrigin: "50% 420px",
         duration: 5,
-        ease: "power2.out",
+        ease: "expoScale(0.5,7,none)",
       })
 
       const handleMouseOver = () => {
@@ -101,7 +103,7 @@ export default function Home() {
           start: "top top",
           end: "bottom bottom",
           scrub:2,
-          markers: true,
+          markers: false,
           duration: 1,
           ease: "power3.out",
           overwrite: "auto",

@@ -1,9 +1,11 @@
 .top {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 20px;
     font-size: 15px;
     color: black;
+    position: fixed;
 }
 
 .right_top {
