@@ -19,7 +19,7 @@ export default function Home() {
   const img_item = useRef([])
   const [imageCenter, setImageCenter] = useState(img1)
 
-  useEffect(() => {
+  useGSAP(() => {
     const generatedItems = [];
 
     for (let i = 0; i < 150; i++) {
@@ -36,8 +36,6 @@ export default function Home() {
     setItems(generatedItems);
 
 
-
-
   }, [])
 
   useGSAP(() => {
@@ -45,10 +43,18 @@ export default function Home() {
     const angleIncrement = 360 / numberOfItems;
 
     img_item.current.forEach((item, index) => {
-      gsap.set(item, {
+      gsap.fromTo(item, 
+        {
+          rotateY: 0,
+          rotateZ: 0,
+          delay: 4
+        },
+        {
         rotateY: 90,
         rotateZ: index * angleIncrement - 90,
         transformOrigin: "50% 400px",
+        duration: 5,
+        ease: "power2.out",
       })
 
       const handleMouseOver = () => {
