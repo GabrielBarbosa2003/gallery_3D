@@ -7,8 +7,11 @@ import { useEffect, useRef, useState } from 'react';
 import  gsap  from "gsap";
 import { React } from 'react'
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger) 
 
 
 export default function Home() {
@@ -84,7 +87,30 @@ export default function Home() {
 
     })
 
+    img_item.current.forEach((item) => {
+      gsap.to(item, {
+        rotationX:200,
+        scrollTrigger:{
+          trigger:"body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub:2,
+          markers: true,
+          duration: 1,
+          ease: "power3.out",
+          overwrite: "auto",
+        }
+      });
+  
+
+    })
+
+
+ 
+
   }, [itens])
+
+
   return (
     <>
       <nav className='top'>
