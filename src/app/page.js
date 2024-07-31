@@ -127,9 +127,9 @@ export default function Home() {
         </div>
 
         <div className='right_top'>
-          <a href='' target="_blank"> <p>Instagram</p></a>
-          <a href='' target="_blank"> <p>Linkedin</p></a>
-          <a href='' target="_blank"> <p>GitHub</p></a>
+          <a href='https://www.instagram.com/gabriellbarbosa/' target="_blank"> <p>Instagram</p></a>
+          <a href='https://www.linkedin.com/in/devgabrielbarbosa/' target="_blank"> <p>Linkedin</p></a>
+          <a href='https://github.com/GabrielBarbosa2003' target="_blank"> <p>GitHub</p></a>
         </div>
 
       </nav>

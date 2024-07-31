@@ -6,6 +6,7 @@
     font-size: 15px;
     color: black;
     position: fixed;
+    z-index: 1;
 }
 
 .right_top {
